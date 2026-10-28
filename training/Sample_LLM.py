@@ -1,15 +1,13 @@
-
-
-
 from openai import OpenAI
 
-client = OpenAI(
-    api_key = 'PASTE_YOUR_KEY_HERE'
-)
+client = OpenAI(api_key="YOUR_API_KEY")
 
-response = client.responses.create(
-    model = 'gpt-5.4-mini',
-    input = "Illaya thalapathy Vijay - Tamil Actor"
-)
+while True:
+    user = input("You: ")
+    
+    response = client.responses.create(
+        model="gpt-5.4-mini",
+        input=user
+    )
 
-print(response.output_text)
+    print("AI:", response.output_text)
